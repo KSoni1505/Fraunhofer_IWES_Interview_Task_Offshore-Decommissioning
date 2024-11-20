@@ -36,56 +36,61 @@ ammonia_density = FUEL_DENSITIES["Ammonia"]
 
 
 class FuelEfficiency:
-    def __init__(self, amount_of_fuel):
-        self.amount_of_fuel = amount_of_fuel
+    def __init__(self, Total_Energy_Consumption):
+        self.Total_Energy_Consumption = Total_Energy_Consumption
 
     #  HFO
     def HFO(self):
-        HFO_co2 = (self.amount_of_fuel * HFO_co2_factor *
+        HFO_co2 = ((self.Total_Energy_Consumption/HFO_EC) * HFO_co2_factor *
                    HFO_density)/1000  # [kg co2]
-        HFO_total_cost = self.amount_of_fuel * HFO_EC * HFO_cost
+        HFO_total_cost = (self.Total_Energy_Consumption/HFO_EC) * HFO_cost
         return HFO_co2, HFO_total_cost
 
     # diesel
 
     def diesel(self):
-        diesel_co2 = (self.amount_of_fuel *
+        diesel_co2 = ((self.Total_Energy_Consumption/diesel_EC) *
                       diesel_co2_factor * diesel_density)/1000
-        diesel_total_cost = self.amount_of_fuel * diesel_EC * diesel_cost
+        diesel_total_cost = (
+            self.Total_Energy_Consumption/diesel_EC) * diesel_cost
         return diesel_co2, diesel_total_cost
 
     #  MGO
     def MGO(self):
-        MGO_co2 = (self.amount_of_fuel * MGO_co2_factor * MGO_density)/1000
-        MGO_total_cost = self.amount_of_fuel * MGO_EC * MGO_cost
+        MGO_co2 = ((self.Total_Energy_Consumption/MGO_EC)
+                   * MGO_co2_factor * MGO_density)/1000
+        MGO_total_cost = (self.Total_Energy_Consumption/MGO_EC) * MGO_cost
         return MGO_co2, MGO_total_cost
 
     # LNG
     def LNG(self):
-        LNG_co2 = (self.amount_of_fuel * LNG_co2_factor * LNG_density)/1000
-        LNG_total_cost = self.amount_of_fuel * LNG_EC * LNG_cost
+        LNG_co2 = ((self.Total_Energy_Consumption/LNG_EC)
+                   * LNG_co2_factor * LNG_density)/1000
+        LNG_total_cost = (self.Total_Energy_Consumption/LNG_EC) * LNG_cost
         return LNG_co2, LNG_total_cost
 
     #  Methanol
     def methanol(self):
-        methanol_co2 = (self.amount_of_fuel *
+        methanol_co2 = ((self.Total_Energy_Consumption/methanol_EC) *
                         methanol_co2_factor * methanol_density)/1000
-        methanol_total_cost = self.amount_of_fuel * methanol_EC * methanol_cost
+        methanol_total_cost = (
+            self.Total_Energy_Consumption/methanol_EC) * methanol_cost
         return methanol_co2, methanol_total_cost
 
     # Ammonia
     def ammonia(self):
-        ammonia_co2 = (self.amount_of_fuel *
+        ammonia_co2 = ((self.Total_Energy_Consumption/ammonia_EC) *
                        ammonia_co2_factor * ammonia_density)/1000
-        ammonia_total_cost = self.amount_of_fuel * ammonia_EC * ammonia_cost
+        ammonia_total_cost = (
+            self.Total_Energy_Consumption/ammonia_EC) * ammonia_cost
         return ammonia_co2, ammonia_total_cost
 
 
 # Example amounts of fuel in tons
-amount_of_fuel = 100  # Example value
+Total_Energy_Consumption = 2000  # [kwh]  # Example value
 
 # Initialize the TechnologyEfficiency object
-efficiency = FuelEfficiency(amount_of_fuel)
+efficiency = FuelEfficiency(Total_Energy_Consumption)
 
 # Calculate CO2 emissions for different fuels
 fuels = ['HFO', 'Diesel', 'MGO', 'LNG', 'Methanol', 'Ammonia']
@@ -113,18 +118,20 @@ Cost_USD = [
 plt.figure(figsize=(10, 6))
 plt.plot(fuels, emissions, marker='o', color='r', label='CO2 Emissions')
 plt.xlabel('Fuel Type', fontsize=12)
-plt.ylabel('CO2 Emissions (kg co2)', fontsize=12)
-plt.title(f'CO2 Emissions for {amount_of_fuel} liters of Fuel', fontsize=16)
+plt.ylabel('CO2 Emissions [kg co2]', fontsize=12)
+plt.title(
+    f'CO2 Emissions for {Total_Energy_Consumption} [kwh] energy consumption', fontsize=16)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.legend(fontsize=12)
 plt.tight_layout()
 
 # Graph (Fuel type Vs cost)
 plt.figure(figsize=(10, 6))
-plt.plot(fuels, Cost_USD, marker='o', color='b', label='Cost (USD)')
+plt.plot(fuels, Cost_USD, marker='o', color='b', label='Cost [USD]')
 plt.xlabel('Fuel Type', fontsize=12)
-plt.ylabel('Cost (USD)', fontsize=12)
-plt.title(f'Cost(USD) for {amount_of_fuel} liters of Fuel', fontsize=16)
+plt.ylabel('Cost [USD]', fontsize=12)
+plt.title(
+    f'Cost [USD] for {Total_Energy_Consumption} [kwh] energy consumption', fontsize=16)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.legend(fontsize=12)
 plt.tight_layout()

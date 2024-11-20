@@ -4,15 +4,15 @@
 "Case 1: Port to Site"
 """"""""
 
-CONSUMING_FUEL = {
-    "Survey_Vessel": 250,         # [litres/h]
-    "SPIVs_Vessel": 250,          # [litres/h]
-    "Dive_Support_Vessel": 400,   # [litres/h]
-    "Crew_boat_Vessel": 150,      # [litres/h]
-    "Work_boat_Vessel": 300,      # [litres/h]
-    "Multicats_Vessel": 400,      # [litres/h]
-    "Tugs_Vessel": 400,           # [litres/h]
-    "Cargo_Vessel": 700          # [litres/h]
+Total_Energy_Consumption_for_Diesel = {
+    "Survey_Vessel": 250 * 10,         # [kwh]
+    "SPIVs_Vessel": 250 * 10,
+    "Dive_Support_Vessel": 400 * 10,
+    "Crew_boat_Vessel": 150 * 10,
+    "Work_boat_Vessel": 300 * 10,
+    "Multicats_Vessel": 400 * 10,
+    "Tugs_Vessel": 400 * 10,
+    "Cargo_Vessel": 700 * 10
 }
 
 Travelling_Time = 4.0  # [3.63 + 0.37 for safe side]  [Distance/speed]
@@ -67,15 +67,15 @@ Energy_cost = {
 "Case 3: Site to port"
 """"""""
 
-CONSUMING_FUEL_3 = {
-    "Survey_Vessel": 250,         # [litres/h]
-    "SPIVs_Vessel": 300,          # [litres/h]
-    "Dive_Support_Vessel": 400,   # [litres/h]
-    "Crew_boat_Vessel": 150,      # [litres/h]
-    "Work_boat_Vessel": 300,      # [litres/h]
-    "Multicats_Vessel": 400,      # [litres/h]
-    "Tugs_Vessel": 400,           # [litres/h]
-    "Cargo_Vessel": 1000          # [litres/h]
+Total_Energy_Consumption_for_Diesel_3 = {
+    "Survey_Vessel": 250 * 10,         # [litres/h]
+    "SPIVs_Vessel": 300 * 10,          # [litres/h]
+    "Dive_Support_Vessel": 400 * 10,   # [litres/h]
+    "Crew_boat_Vessel": 150 * 10,      # [litres/h]
+    "Work_boat_Vessel": 300 * 10,      # [litres/h]
+    "Multicats_Vessel": 400 * 10,      # [litres/h]
+    "Tugs_Vessel": 400 * 10,           # [litres/h]
+    "Cargo_Vessel": 1000 * 10          # [litres/h]
 }
 
 Travelling_Time_3 = 4.5  # [3.63 + 0.37 for safe side] [Distance/speed]
@@ -84,15 +84,15 @@ Travelling_Time_3 = 4.5  # [3.63 + 0.37 for safe side] [Distance/speed]
 "Case 2: In Site"
 """"""""
 
-CONSUMING_FUEL_2 = {
-    "Survey_Vessel": 200,         # [litres/h]
-    "SPIVs_Vessel": 200,          # [litres/h]
-    "Dive_Support_Vessel": 300,   # [litres/h]
-    "Crew_boat_Vessel": 100,      # [litres/h]
-    "Work_boat_Vessel": 200,      # [litres/h]
-    "Multicats_Vessel": 300,      # [litres/h]
-    "Tugs_Vessel": 300,           # [litres/h]
-    "Cargo_Vessel": 500          # [litres/h]
+Total_Energy_Consumption_for_Diesel_2 = {
+    "Survey_Vessel": 200 * 10,         # [litres/h]
+    "SPIVs_Vessel": 200 * 10,          # [litres/h]
+    "Dive_Support_Vessel": 300 * 10,   # [litres/h]
+    "Crew_boat_Vessel": 100 * 10,      # [litres/h]
+    "Work_boat_Vessel": 200 * 10,      # [litres/h]
+    "Multicats_Vessel": 300 * 10,      # [litres/h]
+    "Tugs_Vessel": 300 * 10,           # [litres/h]
+    "Cargo_Vessel": 500 * 10         # [litres/h]
 }
 
 Working_time_per_day = {
